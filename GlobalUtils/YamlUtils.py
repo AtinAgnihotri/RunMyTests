@@ -1,8 +1,9 @@
 '''
 Creates a Settings YAML file at the give location with the give keywords
 '''
+import yaml
 
-class CreateSettingsYaml:
+class YamlUtils:
     def __init__(self):
         self.__initialise_classes()
         self.__initialise_variables()
@@ -14,4 +15,11 @@ class CreateSettingsYaml:
         pass
 
     def create_yaml(self, path, yaml_dict):
-        pass
+        with open(path, 'w') as file:
+            yaml.dump(yaml_dict, file)
+
+    def load_yaml(self, path):
+        loaded_dict = {}
+        with open(path, 'r') as file:
+            loaded_dict = yaml.load(file, Loader=yaml.FullLoader)
+        return loaded_dict

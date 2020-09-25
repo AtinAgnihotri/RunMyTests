@@ -22,15 +22,15 @@ class InitialiseProject:
         self.__gcloud_init = InitGcloudSettings.InitGcloudSettings()
 
     def __initialise_variables(self):
-        self.__proj_path = '' # TODO get project path
+        self.__proj_path = (Path().absolute()  / 'RunMyTests').replace('\\','/')
 
     def __create_settings_folder(self):
         Path(self.__proj_path).mkdir(parents=True, exist_ok=True)
 
     def init_project(self):
         self.__create_settings_folder()
-        self.__local_init.init_local_settings()
-        self.__gcloud_init.init_gcloud_settings()
+        self.__local_init.init_local_settings(self.__proj_path)
+        self.__gcloud_init.init_gcloud_settings(self.__proj_path)
 
     def get_project_path(self):
         proj_path = ''
