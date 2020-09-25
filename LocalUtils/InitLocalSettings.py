@@ -9,7 +9,7 @@ class InitLocalSettings:
         self.__initialise_variables()
 
     def __initialise_classes(self):
-        self.yaml_writer = CreateSettingsYaml.CreateSettingsYaml()
+        self.__yaml_writer = CreateSettingsYaml.CreateSettingsYaml()
 
     def __initialise_variables(self):
         self.__proj_path = '' # TODO Get Current Project Path
@@ -18,5 +18,5 @@ class InitLocalSettings:
         local_dict = {}
         return local_dict
 
-    def init_gcloud_settings(self):
-        self.yaml_writer.create_yaml(self.__proj_path, self.__build_base_local_dict())
+    def init_local_settings(self):
+        self.__yaml_writer.create_yaml(self.__proj_path, self.__build_base_local_dict())

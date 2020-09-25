@@ -1,0 +1,3 @@
+'''
+Error Handler for CLI
+'''
